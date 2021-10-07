@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="gwmays" id="changelog-0002">
+
+ 	<dropTable  cascadeConstraints="true"  
+            schemaName="frsdb"  
+            tableName="registrant"/>  
+            
+		<createTable schemaName="frsdb" tableName="registrant">
+
+			<column name="id" type="integer">
+				<constraints primaryKey="true"/>
+			</column>
+
+			<column name="date_created" type="timestamp with time zone">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="last_updated" type="timestamp with time zone">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="login_id" type="character varying(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="name" type="character varying(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="operating_name" type="character varying(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="provider_name" type="character varying(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="owl_post_address" type="character varying(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="title" type="character varying(255)">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+		
+		<addAutoIncrement  
+			columnDataType="int"
+			columnName="id" 
+			defaultOnNull="false"
+			generationType="ALWAYS"
+			incrementBy="50"  
+			schemaName="frsdb" 
+			startWith="1"  
+			tableName="registrant"/> 
+
+	</changeSet>
+
+</databaseChangeLog>
